@@ -1,0 +1,26 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vyvy-d3248871
+  labels:
+    app: vyvy-d3248871
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: vyvy-d3248871
+  template:
+    metadata:
+      labels:
+        app: vyvy-d3248871
+    spec:
+      serviceAccountName: ingress-manager
+      containers:
+        - name: vyvy-d3248871
+          image: docker.io/phengbunath/vyvy-d3248871:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
